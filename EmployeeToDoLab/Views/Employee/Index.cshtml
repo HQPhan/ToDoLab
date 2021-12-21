@@ -1,0 +1,22 @@
+﻿@model IEnumerable<Employee>
+
+@{
+    ViewData["Title"] = "Index";
+}
+<h1>Employees</h1>
+@foreach (Employee e in Model)
+{
+<div style="border: solid 2px black">
+    <p>Name: @e.Name </p>
+    <p>Title: @e.Title </p>
+    <p>Hours: @e.Hours</p>
+
+    <a asp-action="Details" asp-controller="Employee" asp-route-id="@e.Id">More Details</a><br />
+    <a asp-action="UpdateEmployee" asp-controller="Employee" asp-route-id="@e.Id">Edit Employee</a><br />
+    <a asp-action="Delete" asp-controller="Employee" asp-route-id="@e.Id">Delete</a><br />
+
+</div>
+}
+<div>
+    <a asp-action="Create" asp-controller="Employee">Add Employee</a>
+</div>

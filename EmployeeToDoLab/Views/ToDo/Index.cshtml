@@ -1,0 +1,27 @@
+﻿@model IEnumerable<ToDo>
+
+@{
+    ViewData["Title"] = "Things To Do";
+}
+
+<h1>To Do List</h1>
+@foreach (ToDo td in Model)
+{
+    <div style="border: solid 2px black">
+        <p>Name: @td.Name </p>
+        <p>Description: @td.Description </p>
+        <p>Assigned To: @td.AssignedTo</p>
+        <p>Hours Needed: @td.HoursNeeded</p>
+        <p>Is Completed: @td.IsCompleted</p>
+
+        <a asp-action="Details" asp-controller="ToDo" asp-route-id="@td.Id">More Details</a><br />
+        <!--
+        <a asp-action="Update" asp-controller="Employee" asp-route-id="@td.Id">Edit Employee</a><br />
+        <a asp-action="Delete" asp-controller="Employee" asp-route-id="@td.Id">Delete</a><br /> -->
+
+    </div>
+}
+
+<div>
+    <a asp-action="Create" asp-controller="Employee">Add Employee</a>
+</div>
